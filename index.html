@@ -5,48 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YorrOfficial V7 👑</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI}
 body{background:#0a0a0a;color:#FFD700}
-.header{background:linear-gradient(180deg,#1a1a1a,#000);text-align:center;padding:22px 10px;border-bottom:2px solid #FFD700;position:sticky;top:0;z-index:99}
-.header h1{font-size:30px;text-shadow:0 0 12px #FFD700;letter-spacing:1px}
-.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px}
-.btn{background:linear-gradient(180deg,#FFD700,#8a6d00);color:#000;font-weight:900;padding:16px 5px;border-radius:18px;text-align:center;text-decoration:none;border:2px solid #FFD700;cursor:pointer}
-.btn-o{background:#111;color:#FFD700}
-.full{grid-column:1 / span 2}
-.card{background:#151515;border:1px solid #2a2a2a;border-radius:18px;margin:12px;padding:16px}
+.header{background:#000;text-align:center;padding:20px;border-bottom:2px solid #FFD700;position:sticky;top:0;z-index:99}
+.header h1{font-size:32px;text-shadow:0 0 10px #FFD700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.btn{background:linear-gradient(#FFD700,#8a6d00);color:#000;font-weight:900;padding:16px;border-radius:16px;text-align:center;text-decoration:none;display:block}
+.btn-o{background:#111;color:#FFD700;border:1px solid #FFD700}
+.card{background:#151515;border:1px solid #333;border-radius:18px;margin:12px;padding:16px;display:block !important}
 input,button{width:100%;padding:12px;border-radius:12px;border:1px solid #FFD700;margin-top:8px}
 input{background:#000;color:#FFD700}
-button.action{background:#FFD700;color:#000;font-weight:900;border:none;cursor:pointer}
-.wa{background:#25D366;color:#fff;font-weight:900}
-.small{font-size:12px;color:#aaa;margin-top:6px}
-video{width:100%;border-radius:12px;margin-top:10px}
+button.action{background:#FFD700;color:#000;font-weight:900;border:none}
+.wa{background:#25D366;color:#fff}
+.small{font-size:12px;color:#aaa}
+#gameBox{width:100%;height:280px;background:#000;border:2px solid #FFD700;border-radius:12px;position:relative;overflow:hidden;touch-action:none}
+#block{width:100px;height:25px;background:#FFD700;position:absolute;bottom:20px;left:110px;border-radius:6px;box-shadow:0 0 10px #FFD700}
+#target{width:100px;height:10px;background:#fff;position:absolute;bottom:20px;left:110px;border-radius:6px;opacity:0.5}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>👑 YorrOfficial</h1>
-<p>YorrOfficial V7 • Premium Black Gold • 100M YORR</p>
+<div class="header"><h1>👑 YorrOfficial</h1><p>YorrOfficial V7 • Premium Black Gold</p></div>
+
+<div class="grid">
+<a class="btn" href="#game">🎮 GAME</a>
+<a class="btn btn-o" href="#download">📥 DOWNLOAD</a>
+<a class="btn btn-o" href="#sticker">😜 STICKER</a>
+<a class="btn btn-o" href="#music">🎵 MUSIC</a>
+<a class="btn btn-o" href="#owner">👑 OWNER</a>
+<a class="btn btn-o" href="#panel">⚙️ PANEL</a>
 </div>
 
-<div class="menu-grid">
-<a href="#game" class="btn">🎮 MENU GAME</a>
-<a href="#owner" class="btn btn-o">👑 MENU OWNER</a>
-<a href="#music" class="btn btn-o">🎵 MENU MUSIC</a>
-<a href="#panel" class="btn btn-o">⚙️ MENU PANEL</a>
-<a href="#sticker" class="btn btn-o">😜 MENU STICKER</a>
-<a href="#download" class="btn btn-o">📥 MENU DOWNLOAD</a>
-<a href="#yorr" class="btn full">📜 YORROFFICIAL</a>
+<div class="card" id="game">
+<h2>🎮 MENU GAME - YorrOfficial TAP!</h2>
+<p class="small">Tap layar pas kotak kuning di atas kotak putih! Bisa dimainin!</p>
+<div id="gameBox" onclick="tapGame()">
+<div id="target"></div>
+<div id="block"></div>
+</div>
+<p style="margin-top:8px">Score: <span id="score">0</span> | Best: <span id="best">0</span> | Tap layar item untuk main!</p>
+<button class="action" onclick="resetGame()">🔄 ULANG GAME</button>
 </div>
 
-<div id="game" class="card">
-<h2>🎮 MENU GAME - YorrOfficial Game</h2>
-<p class="small">Game eksklusif YorrOfficial - Tap untuk main!</p>
-<canvas id="gameCanvas" style="width:100%;height:250px;background:#000;border-radius:12px;border:1px solid #FFD700"></canvas>
-<p>Score: <span id="score">0</span> | Best: <span id="best">0</span></p>
-</div>
-
-<div id="download" class="card">
-<h2>📥 MENU DOWNLOAD - TT / IG / YT DIRECT</h2>
-<p class="small">Tempel link TikTok, langsung download NO WM tanpa lontar-lontar!</p>
+<div class="card" id="download">
+<h2>📥 MENU DOWNLOAD - TT DIRECT NO WM</h2>
 <input id="dlInput" placeholder="Tempel link TikTok disini...">
-<button class="action" onclick="doDownload()">🚀 DOWNLOAD NO
+<button class="action" onclick="doDownload()">🚀 DOWNLOAD NO WM LANGSUNG</button>
+<div id="dlResult" style="margin-top:10px"></div>
+</div>
+
+<div class="card" id="sticker">
+<h2>😜 MENU STICKER - YorrOfficial</h2>
+<input type="file" accept="image/*" onchange="makeSticker(event)">
+<img id="prev" style="display:none;width:100%;border-radius:12px;margin-top:10px">
+<button id="dlSt" style="display:none" class="action" onclick="downloadSticker()">📥 DOWNLOAD STICKER</button>
+</div>
+
+<div class="card" id="music">
+<h2>🎵 MENU MUSIC</h2>
+<input id="mInput" placeholder="Judul lagu...">
+<button class="action" onclick="searchMusic()">CARI LAGU</button>
+<div id="mRes" style="margin-top:10px"></div>
+</div>
+
+<div class="card" id="owner">
+<h2>👑 MENU OWNER - YorrOfficial</h2>
+<p>Owner: 6283844183164</p>
+<a href="https://wa.me/6283844183164?text=Halo%20YorrOfficial%20V7" target="_blank" style="text-decoration:none"><button class="action wa">💬 CHAT OWNER</button></a>
+</div>
+
+<div class="card" id="panel">
+<h2>⚙️ MENU PANEL - YorrOfficial</h2>
+<p>Panel Premium YorrOfficial</p>
+<a href="https://wa.me/6283844183164?text=Bang%20minta%20panel%20YorrOfficial" target="_blank" style="text-decoration:none"><button class="action wa">⚙️ REQUEST PANEL</button></a>
+</div>
+
+<div class="card">
+<h2>📜 YORROFFICIAL</h2>
+<p>Website: yorr-game-v7.vercel.app<br>Brand: YorrOfficial ONLY 👑<br>100M YORR • Black Gold Premium</p>
+</div>
+
+<script>
+// GAME FIX - BISA DIMAININ
+let score=0,best=localStorage.getItem('yorrBest')||0,x=0,dir=3,w=100;
+document.getElementById('best').innerText=best;
+let block=document.getElementById('block');
+function loop(){x+=dir;if(x>210||x<0)dir*=-1;block.style.left=x+'px';requestAnimationFrame(loop)}loop();
+function tapGame(){let targetPos=110;if(Math.abs(x-targetPos)<30){score++;document.getElementById('score').innerText=score;w=Math.max(40,w-2);block.style.width=w+'px';if(score>best){best=score;localStorage.setItem('yorrBest',best);document.getElementById('best').innerText=best}dir=dir>0?dir+0.3:dir-0.3;}else{alert('Meleset! Score: '+score+' - YorrOfficial');score=0;w=100;block.style.width='100px';document.getElementById('score').innerText=0;dir=3}}
+function resetGame(){score=0;w=100;dir=3;block.style.width='100px';document.getElementById('score').innerText=0}
+
+// STICKER
+let canvas=document.createElement('canvas');function makeSticker(e){let f=e.target.files[0];let img=document.getElementById('prev');img.src=URL.createObjectURL(f);img.style.display='block';img.onload=()=>{canvas.width=512;canvas.height=512;let c=canvas.getContext('2d');let s=Math.max(512/img.width,512/img.height);let ww=img.width*s,hh=img.height*s;c.clearRect(0,0,512,512);c.drawImage(img,(512-ww)/2,(512-hh)/2,ww,hh);document.getElementById('dlSt').style.display='block'}}function downloadSticker(){let a=document.createElement('a');a.download='sticker-yorrofficial.png';a.href=canvas.toDataURL();a.click()}
+// MUSIC
+async function searchMusic(){let q=document.getElementById('mInput').value;if(!q)return;document.getElementById('mRes').innerHTML='Loading...';let r=await fetch('https://itunes.apple.com/search?term='+encodeURIComponent(q)+'&limit=3');let d=await r.json();let h='';d.results.forEach(t=>{h+=`<div style="background:#000;padding:8px;border-radius:10px;margin-top:6px"><b>${t.trackName}</b><br><small>${t.artistName}</small><br><audio controls src="${t.previewUrl}" style="width:100%"></audio></div>`});document.getElementById('mRes').innerHTML=h}
+// DOWNLOAD DIRECT NO LONTAR
+async function doDownload(){let link=document.getElementById('dlInput').value.trim();let out=document.getElementById('dlResult');if(!link)return alert('Tempel link dulu beb!');out.innerHTML='⏳ Proses...';if(link.includes('tiktok')){try{let res=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(link)+'&hd=1');let data=await res.json();let v=data.data;out.innerHTML=`<video controls src="${v.play}" poster="${v.cover}" style="width:100%;border-radius:12px"></video><p><b>${v.title||''}</b></p><a href="${v.play}" target="_blank" style="text-decoration:none"><button class="action">📥 DOWNLOAD NO WM LANGSUNG</button></a><a href="${v.music}" target="_blank" style="text-decoration:none"><button class="action" style="background:#111;color:#FFD700;margin-top:6px">🎵 DOWNLOAD MP3</button></a>`}catch(e){out.innerHTML=`<a href="https://tikwm.com/en/?url=${encodeURIComponent(link)}" target="_blank" style="text-decoration:none"><button class="action">📥 BUKA DOWNLOAD DIRECT</button></a>`}}else{out.innerHTML=`<a href="https://savefrom.net/#url=${encodeURIComponent(link)}" target="_blank" style="text-decoration:none"><button class="action">📥 DOWNLOAD DIRECT</button></a>`}}
+</script>
+</body>
+</html>
