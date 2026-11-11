@@ -3,19 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YorrOfficial V7 Anime Live 👑</title>
+<title>YorrOfficial V7 👑</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
-body{background:#000;color:#fff;overflow-x:hidden}
-/* ANIME GERAK BACKGROUND - BUNDA YORR */
-.anime-bg{position:fixed;inset:0;z-index:0}
-.anime-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.35) saturate(1.3) blur(0px);animation:zoom 20s ease-in-out infinite alternate}
-@keyframes zoom{0%{transform:scale(1)}100%{transform:scale(1.15)}}
-.overlay{position:absolute;inset:0;background:radial-gradient(circle at 50% 10%,transparent 10%,#000 90%),linear-gradient(180deg,#00000055,#000 95%)}
-.glow{position:absolute;top:15%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,#FFD70018,transparent 65%);animation:float 5s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-25px)}}
+body{background:#0a0a0a;color:#fff;min-height:100vh}
+.anime-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#1a1a2e,#16213e,#0f0f0f)}
+.anime-bg::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600') center/cover;opacity:0.6;animation:zoom 20s infinite alternate}
+.anime-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,#FFD70022,transparent 60%),linear-gradient(180deg,transparent 0%,#000000bb 100%)}
+@keyframes zoom{0%{transform:scale(1)}100%{transform:scale(1.2)}}
 .header{position:relative;z-index:2;text-align:center;padding:28px 20px 10px}
-.header h1{font-size:44px;font-weight:900;letter-spacing:-1px}
-.header h1 span{background:linear-gradient(180deg,#FFE55C,#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 25px #FFD700aa)}
-.header p{color:#ffffff88
+.header h1{font-size:42px;font-weight:900;text-shadow:0 0 20px #FFD70088}
+.header h1 span{color:#FFD700}
+.bento{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
+.card{position:relative;background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);border-radius:28px;padding:18px}
+.card.full{grid-column:1 / span 2}
+.gold{background:linear-gradient(135deg,#FFD700,#FFE88A) !important;color:#000 !important}
+.btn{width:100%;padding:14px;border-radius:100px;border:none;font-weight:900;margin-top:10px}
+.btn-gold{background:#FFD700;color:#000}
+.btn-dark{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.2)}
+.btn-wa{background:#25D366;color:#fff}
+input{width:100%;padding:14px 18px;border-radius:100px;background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.2);color:#fff;margin-top:10px}
+.game-box{width:100%;height:260px;background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.2);border-radius:22px;margin-top:12px;position:relative;overflow:hidden}
+#block{width:90px;height:22px;background:#FFD700;position:absolute;bottom:24px;left:0;border-radius:100px;box-shadow:0 0 20px #FFD700}
+.small{font-size:11px;color:#ffffff99;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="anime-bg"></div>
+<div class="header">
+<h1>👑 <span>YorrOfficial</span></h1>
+<p style="color:#ffffff88;font-size:11px;letter-spacing:3px">ANIME LIVE • V7 TERANG • BLACK GOLD</p>
+</div>
+<div class="bento">
+<a href="#game" style="text-decoration:none"><div class="card gold full"><h3 style="font-size:12px;color:#0008">MAIN GAME</h3><h2 style="color:#000">🎮 GAME YORR - TAP!</h2></div></a>
+<a href="#download" style="text-decoration:none"><div class="card"><h3>📥 DOWNLOAD</h3><h2>TT / IG / YT</h2><p class="small">Direct No WM</p></div></a>
+<a href="#sticker" style="text-decoration:none"><div class="card"><h3>✨ STICKER</h3><h2>STICKER HD</h2></div></a>
+<a href="#music" style="text-decoration:none"><div class="card"><h3>🎵 MUSIC</h3><h2>MUSIC</h2></div></a>
+<a href="#owner" style="text-decoration:none"><div class="card"><h3>👑 OWNER</h3><h2>OWNER</h2><p class="small">6283844183164</p></div></a>
+<a href="#panel" style="text-decoration:none"><div class="card"><h3>⚙️ PANEL</h3><h2>PANEL</h2></div></a>
+</div>
+<div class="bento" style="padding-top:0">
+<div class="card full" id="game">
+<h3>🎮 MENU GAME</h3>
+<h2>Score <span id="score" style="color:#FFD700">0</span> • Best <span id="best">0</span></h2>
+<div class="game-box" onclick="tapGame()"><div id="block"></div></div>
+<button class="btn btn-dark" onclick="resetGame()">Reset</button>
+</div>
+<div class="card full" id="download">
+<h3>📥 DOWNLOAD - DIRECT NO WM</h3>
+<input id="dlInput" placeholder="Tempel link TikTok...">
+<button class="btn btn-gold" onclick="doDownload()">Download Langsung 🚀</button>
+<div id="dlResult" style="margin-top:10px"></div>
+</div>
+<div class="card full" id="sticker">
+<h3>✨ STICKER</h3>
+<input type="file" accept="image/*" onchange="makeSticker(event)">
+<img id="prev" style="display:none;width:100%;border-radius:18px;margin-top:10px">
+<button id="dlSt" style="display:none" class="btn btn-gold" onclick="downloadSticker()">Download Sticker</button>
+</div>
+<div class="card full" id="music">
+<h3>🎵 MUSIC - YORR</h3>
+<input id="mInput" placeholder="Cari lagu...">
+<button class="btn btn-dark" onclick="searchMusic()">Cari Lagu</button>
+<div id="mRes" style="margin-top:10px"></div>
+</div>
+<div class="card full" id="owner">
+<h3>👑 OWNER</h3>
+<h2>6283844183164</h2>
+<a href="https://wa.me/6283844183164" target="_blank" style="text-decoration:none"><button class="btn btn-wa">Chat Owner 💬</button></a>
+</div>
+<div class="card full" id="panel">
+<h3>⚙️ PANEL</h3>
+<a href="https://wa.me/6283844183164?text=Minta%20Panel" target="_blank" style="text-decoration:none"><button class="btn btn-wa">Request Panel</button></a>
+</div>
+</div>
+<script>
+let score=0,best=localStorage.getItem('yorrBest')||0,x=0,dir=4;
+document.getElementById('best').innerText=best;
+let block=document.getElementById('block');
+function loop(){x+=dir;if(x>250||x<0)dir*=-1;block.style.left=x+'px';requestAnimationFrame(loop)}loop();
+function tapGame(){if(Math.abs(x-125)<30){score++;document.getElementById('score').innerText=score;dir+=dir>0?0.2:-0.2;if(score>best){best=score;localStorage.setItem('yorrBest',best);document.getElementById('best').innerText=best}}else{score=0;dir=4;document.getElementById('score').innerText=0}}
+function resetGame(){score=0;dir=4;document.getElementById('score').innerText=0}
+let canvas=document.createElement('canvas');
+function makeSticker(e){let f=e.target.files[0];let img=document.getElementById('prev');img.src=URL.createObjectURL(f);img.style.display='block';img.onload=()=>{canvas.width=512;canvas.height=512;let c=canvas.getContext('2d');let s=Math.max(512/img.width,512/img.height);let ww=img.width*s,hh=img.height*s;c.clearRect(0,0,512,512);c.drawImage(img,(512-ww)/2,(512-hh)/2,ww,hh);document.getElementById('dlSt').style.display='block'}}
+function downloadSticker(){let a=document.createElement('a');a.download='sticker-yorrofficial.png';a.href=canvas.toDataURL();a.click()}
+async function searchMusic(){let q=document.getElementById('mInput').value;if(!q)return;document.getElementById('mRes').innerHTML='Loading...';let r=await fetch('https://itunes.apple.com/search?term='+encodeURIComponent(q)+'&limit=5');let d=await r.json();let h='';d.results.forEach(t=>{h+=`<div style="background:rgba(255,255,255,0.1);padding:12px;border-radius:16px;margin-top:8px"><b>${t.trackName}</b><br><small>${t.artistName}</small><br><audio controls src="${t.previewUrl}" style="width:100%"></audio></div>`});document.getElementById('mRes').innerHTML=h}
+async function doDownload(){let link=document.getElementById('dlInput').value.trim();let out=document.getElementById('dlResult');if(!link)return;out.innerHTML='Proses...';try{let res=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(link)+'&hd=1');let data=await res.json();let v=data.data;out.innerHTML=`<video controls src="${v.play}" poster="${v.cover}" style="width:100%;border-radius:18px"></video><a href="${v.play}" target="_blank" style="text-decoration:none"><button class="btn btn-gold" style="margin-top:10px">📥 Download No WM</button></a>`}catch{out.innerHTML=`<a href="https://tikwm.com/en/?url=${encodeURIComponent(link)}" target="_blank" style="text-decoration:none"><button class="btn btn-dark">Buka Direct</button></a>`}}
+</script>
+</body>
+</html>
