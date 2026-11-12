@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YorrOfficial</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
-body{background:#121212;color:#fff;min-height:100vh;position:relative}
-body::before{content:'';position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1000') center/cover;opacity:0.28;filter:blur(6px) brightness(1.1);z-index:0}
-.wrap{position:relative;z-index:1;padding:12px;padding-bottom:110px;max-width:480px;margin:0 auto}
-.top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.anime{font-size:9px;font-weight:900;color:#FFD700;background:rgba(255,215,0,0.12);border:1px solid #FFD70033;border-radius:14px;padding:6px 10px;text-align:center;line-height:1.1}
-.logo{display:flex;align-items:center;gap:8px}
-.y-icon{width:42px;height:42px;background:linear-gradient(135deg,#FFD700,#FF8F00);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;font-size:20px}
-.level
+</head>
+<body style="margin:0;padding:12px;background:#FFFEF5;font-family:sans-serif;min-height:100vh">
+
+<div style="text-align:center;padding:18px;background:#fff;border:3px solid #FFD700;border-radius:22px">
+<h1 style="margin:0;font-size:32px;color:#000">👑 YorrOfficial</h1>
+<p style="margin:8px 0 0 0;background:#FFD700;display:inline-block;padding:6px 14px;border-radius:100px;font-weight:900;font-size:12px;color:#000">SELAMAT DATANG DI WEBSITE YORROFFICIAL</p>
+</div>
+
+<div style="background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px">
+<h3 style="margin:0;color:#000">🖥️ Menu Game YorrOffc</h3>
+<p style="text-align:center;font-size:24px;color:#FF8F00;font-weight:900;margin:10px 0">Score: <span id="score">0</span></p>
+<div style="width:100%;height:200px;background:#FFF9C4;border:3px dashed #FFD700;border-radius:18px;display:flex;align-items:center;justify-content:center;margin-top:10px">
+<button id="coin" onclick="tap()" style="width:90px;height:90px;background:#FFD700;border-radius:50%;border:4px solid #000;font-size:40px;cursor:pointer">💰</button>
+</div>
+<button onclick="tap()" style="width:100%;padding:14px;border-radius:100px;background:#000;color:#FFD700;font-weight:900;border:none;margin-top:10px">💥 TAP KOIN DISINI!</button>
+</div>
+
+<div style="background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px">
+<h3 style="margin:0;color:#000">🎀 Owner Web</h3>
+<a href="https://wa.me/6283844183164" target="_blank" style="text-decoration:none"><button style="width:100%;padding:14px;border-radius:100px;background:#25D366;color:#fff;font-weight:900;border:none;margin-top:8px">💬 Chat Owner Langsung</button></a>
+</div>
+
+<div style="background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px">
+<h3 style="margin:0;color:#000">🎧 Music Menu</h3>
+<p style="font-size:11px;color:#666;margin:4px 0">Ketik apapun - DJ Palembang dll - pasti bisa diputer!</p>
+<input id="mInput" placeholder="Cari lagu apa aja..." style="width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:6px">
+<button onclick="searchM()" style="width:100%;padding:12px;border-radius:100px;background:#FF0000;color:#fff;font-weight:900;border:none;margin-top:8px">▶️ Cari & Putar</button>
+<div id="mRes" style="margin-top:10px"></div>
+</div>
+
+<div style="background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px">
+<h3 style="margin:0;color:#000">🎊 Download TT / IG / YT</h3>
+<input id="dlInput" placeholder="Tempel link TikTok..." style="width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:6px">
+<button onclick="dl()" style="width:100%;padding:12px;border-radius:100px;background:#FFD700;color:#000;font-weight:900;border:none;margin-top:8px">🚀 Download No WM</button>
+<div id="dlRes" style="margin-top:10px"></div>
+</div>
+
+<div style="background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px">
+<h3 style="margin:0;color:#000">🐉 Channel YorrOffc</h3>
+<a href="https://whatsapp.com
