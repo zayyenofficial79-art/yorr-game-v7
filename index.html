@@ -7,128 +7,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
-body{background:#0f0f0f;color:#fff;min-height:100vh}
-.anime-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#1a1a2e,#0f0f0f);opacity:0.8}
-.header{position:relative;z-index:2;text-align:center;padding:24px}
-.header h1{font-size:40px;font-weight:900;color:#FFD700;text-shadow:0 0 20px #FFD70088}
-.bento{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
+body{background:#0f0f0f;color:#fff}
+.header{position:relative;z-index:2;text-align:center;padding:24px;background:#000000aa;backdrop-filter:blur(10px)}
+.header h1{font-size:38px;font-weight:900;color:#FFD700}
+.bento{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .card{background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:26px;padding:18px}
 .card.full{grid-column:1 / span 2}
 .gold{background:linear-gradient(135deg,#FFD700,#FFE88A) !important;color:#000 !important}
-.btn{width:100%;padding:13px;border-radius:100px;border:none;font-weight:900;margin-top:8px;cursor:pointer}
+.btn{width:100%;padding:13px;border-radius:100px;border:none;font-weight:900;margin-top:8px}
 .btn-gold{background:#FFD700;color:#000}
-.btn-dark{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.2)}
-.btn-small{padding:10px 14px;font-size:13px;width:auto;display:inline-block;margin:4px}
+.btn-dark{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.2)}
 .game-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.game-item{background:rgba(0,0,0,0.5);border:1px solid #FFD70044;border-radius:18px;padding:14px;text-align:center;cursor:pointer;transition:0.2s}
-.game-item.active{background:linear-gradient(135deg,#FFD700,#FFE88A);color:#000;border-color:#FFD700}
-.game-item h4{font-size:14px}
-.game-box{width:100%;height:280px;background:#000;border-radius:20px;margin-top:12px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.1)}
+.game-item{background:#000;border:1px solid #FFD70055;border-radius:18px;padding:14px;text-align:center;cursor:pointer}
+.game-item.active{background:#FFD700;color:#000}
+.game-box{width:100%;height:280px;background:#000;border-radius:20px;margin-top:12px;position:relative;overflow:hidden;border:1px solid #333}
 #block{width:90px;height:22px;background:#FFD700;position:absolute;bottom:24px;left:0;border-radius:100px;box-shadow:0 0 15px #FFD700}
-input{width:100%;padding:14px;border-radius:100px;background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.2);color:#fff;margin-top:10px}
-.small{font-size:11px;color:#ffffff88;margin-top:6px}
+.coin{width:50px;height:50px;background:radial-gradient(circle,#FFE88A,#FFD700);border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 20px #FFD700;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer}
+.small{font-size:11px;color:#ffffff88}
 </style>
 </head>
 <body>
-<div class="anime-bg"></div>
 <div class="header">
 <h1>👑 YorrOfficial</h1>
-<p style="color:#ffffff66;letter-spacing:3px;font-size:11px">V7 GAME CENTER • BANYAK PILIHAN GAME</p>
+<p style="color:#ffffff66;font-size:11px;letter-spacing:3px">V7 • TAP KOIN • BANYAK PILIHAN GAME</p>
 </div>
 
 <div class="bento">
-<div class="card gold full" onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})"><h3 style="font-size:12px;color:#0008">MAIN GAME CENTER</h3><h2 style="color:#000">🎮 GAME YORR - TAP UNTUK BANYAK GAME!</h2><p class="small" style="color:#0009">Di dalemnya ada 4 game pilihan beb!</p></div>
-<a href="#download" style="text-decoration:none"><div class="card"><h3>📥 DOWNLOAD</h3><h2>TT / IG / YT</h2></div></a>
-<a href="#sticker" style="text-decoration:none"><div class="card"><h3>✨ STICKER</h3><h2>STICKER</h2></div></a>
+<div class="card gold full"><h3 style="font-size:12px;color:#0008">GAME CENTER</h3><h2 style="color:#000">🎮 GAME YORR - TAP! (BANYAK GAME DI DALEM)</h2></div>
 </div>
 
 <div class="bento" style="padding-top:0">
 <div class="card full" id="game">
-<h3>🎮 MENU GAME YORR - BANYAK PILIHAN!</h3>
-<p class="small">Pencet salah satu game di bawah, langsung main di sini tanpa pindah halaman!</p>
-
-<!-- PILIHAN GAME DI DALAM MENU GAME -->
-<div class="game-list">
-<div class="game-item active" id="g1" onclick="pilihGame(1)"><h4>⚡ TAP YORR</h4><p class="small" style="color:inherit">Tap cepat</p></div>
-<div class="game-item" id="g2" onclick="pilihGame(2)"><h4>🧱 STACK YORR</h4><p class="small" style="color:inherit">Susun balok</p></div>
-<div class="game-item" id="g3" onclick="pilihGame(3)"><h4>🐤 FLAPPY YORR</h4><p class="small" style="color:inherit">Terbang</p></div>
-<div class="game-item" id="g4" onclick="pilihGame(4)"><h4>🔢 2048 YORR</h4><p class="small" style="color:inherit">Puzzle angka</p></div>
-</div>
-
-<h2 style="margin-top:14px">Game: <span id="gameName" style="color:#FFD700">TAP YORR</span> • Score <span id="score" style="color:#FFD700">0</span> • Best <span id="best">0</span></h2>
-<div class="game-box" id="gameBox" onclick="tapAction()"><div id="block"></div><canvas id="canvas" style="width:100%;height:100%;display:none"></canvas><div id="flappy" style="display:none;width:100%;height:100%;position:relative"><div id="bird" style="width:30px;height:30px;background:#FFD700;border-radius:50%;position:absolute;left:50px;top:120px"></div></div><div id="box2048" style="display:none;padding:10px;color:#fff">Pencet angka sama biar jadi besar! <br><br><div id="grid2048" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px"></div></div></div>
-<button class="btn btn-dark" onclick="resetGame()">↺ Reset Game</button>
-<p class="small" id="howto">Cara: Tap kotak hitam pas block kuning di tengah!</p>
-</div>
-
-<div class="card full" id="download">
-<h3>📥 MENU DOWNLOAD</h3>
-<input id="dlInput" placeholder="Tempel link TikTok...">
-<button class="btn btn-gold" onclick="doDownload()">Download 🚀</button>
-<div id="dlResult" style="margin-top:10px"></div>
-</div>
-
-<div class="card full" id="sticker">
-<h3>✨ MENU STICKER</h3>
-<input type="file" accept="image/*" onchange="makeSticker(event)">
-<img id="prev" style="display:none;width:100%;border-radius:18px;margin-top:10px">
-<button id="dlSt" style="display:none" class="btn btn-gold" onclick="downloadSticker()">Download Sticker</button>
-</div>
-
-<div class="card full" id="music">
-<h3>🎵 MENU MUSIC</h3>
-<input id="mInput" placeholder="Cari lagu...">
-<button class="btn btn-dark" onclick="searchMusic()">Cari</button>
-<div id="mRes" style="margin-top:10px"></div>
-</div>
-
-<div class="card full" id="owner">
-<h3>👑 OWNER - 6283844183164</h3>
-<a href="https://wa.me/6283844183164" target="_blank" style="text-decoration:none"><button class="btn" style="background:#25D366;color:#fff">Chat Owner 💬</button></a>
-</div>
-</div>
-
-<script>
-// SYSTEM GANTI GAME DI DALAM 1 MENU
-let currentGame=1,score=0,best=localStorage.getItem('yorrBest')||0,x=0,dir=4;
-document.getElementById('best').innerText=best;
-let block=document.getElementById('block');
-function loop(){if(currentGame==1){x+=dir;if(x>250||x<0)dir*=-1;block.style.left=x+'px'}requestAnimationFrame(loop)}loop();
-function pilihGame(n){
- currentGame=n;
- document.querySelectorAll('.game-item').forEach(e=>e.classList.remove('active'));
- document.getElementById('g'+n).classList.add('active');
- block.style.display=n==1?'block':'none';
- document.getElementById('canvas').style.display='none';
- document.getElementById('flappy').style.display=n==3?'block':'none';
- document.getElementById('box2048').style.display=n==4?'block':'none';
- const names=['','TAP YORR','STACK YORR','FLAPPY YORR','2048 YORR'];
- const helps=['','Tap pas di tengah!','Tap pas balok pas!','Tap biar terbang!','Swipe angka!'];
- document.getElementById('gameName').innerText=names[n];
- document.getElementById('howto').innerText=helps[n];
- if(n==4)init2048();
- score=0;document.getElementById('score').innerText=0;
-}
-function tapAction(){
- if(currentGame==1){
-  if(Math.abs(x-125)<30){score++;document.getElementById('score').innerText=score;dir+=dir>0?0.2:-0.2;if(score>best){best=score;localStorage.setItem('yorrBest',best);document.getElementById('best').innerText=best}}else{score=0;dir=4;document.getElementById('score').innerText=0}
- }else if(currentGame==2){
-  score++;document.getElementById('score').innerText=score;if(score>best){best=score;localStorage.setItem('yorrBest',best);document.getElementById('best').innerText=best}
- }else if(currentGame==3){
-  let bird=document.getElementById('bird');let top=parseInt(bird.style.top||120);bird.style.top=(top-30)+'px';
- }
-}
-function resetGame(){score=0;document.getElementById('score').innerText=0;if(currentGame==3)document.getElementById('bird').style.top='120px'}
-// FLAPPY GRAVITY
-setInterval(()=>{if(currentGame==3){let bird=document.getElementById('bird');let t=parseInt(bird.style.top||120);if(t<260)bird.style.top=(t+3)+'px'}},30);
-// 2048 SIMPLE
-function init2048(){let grid=document.getElementById('grid2048');grid.innerHTML='';for(let i=0;i<16;i++){let d=document.createElement('div');d.style.background='#ffffff15';d.style.padding='18px 0';d.style.borderRadius='10px';d.style.textAlign='center';d.innerText=i<2?2:'';d.style.fontWeight='900';grid.appendChild(d)}}
-// STICKER
-let canvas=document.createElement('canvas');
-function makeSticker(e){let f=e.target.files[0];let img=document.getElementById('prev');img.src=URL.createObjectURL(f);img.style.display='block';img.onload=()=>{canvas.width=512;canvas.height=512;let c=canvas.getContext('2d');let s=Math.max(512/img.width,512/img.height);let ww=img.width*s,hh=img.height*s;c.clearRect(0,0,512,512);c.drawImage(img,(512-ww)/2,(512-hh)/2,ww,hh);document.getElementById('dlSt').style.display='block'}}
-function downloadSticker(){let a=document.createElement('a');a.download='sticker-yorrofficial.png';a.href=canvas.toDataURL();a.click()}
-async function searchMusic(){let q=document.getElementById('mInput').value;if(!q)return;document.getElementById('mRes').innerHTML='...';let r=await fetch('https://itunes.apple.com/search?term='+encodeURIComponent(q)+'&limit=4');let d=await r.json();let h='';d.results.forEach(t=>{h+=`<div style="background:rgba(255,255,255,0.08);padding:12px;border-radius:16px;margin-top:8px"><b>${t.trackName}</b><br><audio controls src="${t.previewUrl}" style="width:100%"></audio></div>`});document.getElementById('mRes').innerHTML=h}
-async function doDownload(){let link=document.getElementById('dlInput').value.trim();let out=document.getElementById('dlResult');if(!link)return;out.innerHTML='Proses...';try{let res=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(link)+'&hd=1');let data=await res.json();let v=data.data;out.innerHTML=`<video controls src="${v.play}" poster="${v.cover}" style="width:100%;border-radius:18px"></video><a href="${v.play}" target="_blank" style="text-decoration:none"><button class="btn btn-gold" style="margin-top:8px">📥 Download No WM</button></a>`}catch{out.innerHTML=`<a href="https://tikwm.com/en/?url=${encodeURIComponent(link)}" target="_blank" style="text-decoration:none"><button class="btn btn-dark">Buka Direct</button></a>`}}
-</script>
-</body>
-</html>
+<h3>🎮 PILIH GAME DI BAWAH - SEMUA BISA DIPENCET!</h
