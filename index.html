@@ -4,159 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YorrOfficial</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{
-  background: linear-gradient(120deg,#FFF9C4,#FFD54F,#FFE082,#FFF8E1);
-  background-size:400% 400%;
-  animation:gerak 10s ease infinite;
-  padding:12px;
-  min-height:100vh;
-}
-@keyframes gerak{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.header{text-align:center;padding:18px;background:#fff;border:3px solid #FFD700;border-radius:22px}
-.header h1{font-size:32px}
-.header p{background:#FFD700;color:#000;font-weight:900;font-size:12px;padding:6px 14px;border-radius:100px;display:inline-block;margin-top:6px}
-.card{background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px}
-.gamebox{width:100%;height:260px;background:#FFF8E1;border:3px dashed #FFB300;border-radius:18px;position:relative;margin-top:10px;overflow:hidden}
-#coin{width:80px;height:80px;background:gold;border-radius:50%;border:3px solid #000;position:absolute;left:100px;top:80px;font-size:34px;z-index:10}
-input{width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:8px}
-.btn{width:100%;padding:14px;border-radius:100px;border:none;font-weight:900;margin-top:8px}
-</style>
-</head>
-<body>
-
-<div class="header">
-<h1>👑 YorrOfficial</h1>
-<p>SELAMAT DATANG DI WEBSITE YORROFFICIAL</p>
-</div>
-
-<!-- 1. GAME - SELALU MUNCUL, GAK DI HIDE LAGI -->
-<div class="card" style="background:linear-gradient(135deg,#FFD700,#FFE082)">
-<h3>🖥️ Menu Game YorrOffc</h3>
-<p style="margin-top:6px">Score: <b id="score" style="color:#000;font-size:20px">0</b> | Best: <b id="best">0</b></p>
-<div class="gamebox">
-<button type="button" id="coin" onclick="tap()">💰</button>
-</div>
-<button type="button" class="btn" style="background:#000;color:#FFD700" onclick="tap()">💥 TAP KOIN DI SINI! (PASTI BISA)</button>
-<button type="button" class="btn" style="background:#fff;color:#000;border:2px solid #000" onclick="score=0;document.getElementById('score').innerText=0">Reset</button>
-</div>
-
-<!-- 2. OWNER - SELALU MUNCUL -->
-<div class="card">
-<h3>🎀 Owner Web</h3>
-<h2 style="margin-top:6px">Owner Web YorrOfficial</h2>
-<p style="font-size:11px;color:#666">Pencet tombol bawah langsung chat owner!</p>
-<a href="https://wa.me/6283844183164?text=Halo%20Owner%20YorrOfficial" target="_blank" style="text-decoration:none"><button type="button" class="btn" style="background:#25D366;color:#fff">💬 Chat Owner - 6283844183164</button></a>
-</div>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YorrOfficial</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:linear-gradient(120deg,#FFF9C4,#FFD54F,#FFE082,#FFF8E1);background-size:400% 400%;animation:gerak 10s ease infinite;padding:12px;min-height:100vh}
-@keyframes gerak{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.header{text-align:center;padding:18px;background:#fff;border:3px solid #FFD700;border-radius:22px}
-.header h1{font-size:32px}
-.header p{background:#FFD700;color:#000;font-weight:900;font-size:12px;padding:6px 14px;border-radius:100px;display:inline-block;margin-top:6px}
-.card{background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px}
-.gamebox{width:100%;height:260px;background:#FFF8E1;border:3px dashed #FFB300;border-radius:18px;position:relative;margin-top:10px;overflow:hidden}
-#coin{width:80px;height:80px;background:gold;border-radius:50%;border:3px solid #000;position:absolute;left:100px;top:80px;font-size:34px;z-index:10}
-input{width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:8px}
-.btn{width:100%;padding:14px;border-radius:100px;border:none;font-weight:900;margin-top:8px}
-</style>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YorrOfficial</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{
-  background:#FFFFFF !important;
-  padding:12px;
-  min-height:100vh;
-}
-.header{text-align:center;padding:18px;background:#FFFFFF;border:3px solid #FFD700;border-radius:22px;box-shadow:0 4px 15px rgba(255,215,0,0.3)}
-.header h1{font-size:32px;color:#000 !important}
-.header p{background:#FFD700;color:#000;font-weight:900;font-size:12px;padding:6px 14px;border-radius:100px;display:inline-block;margin-top:6px}
-.card{background:#FFFFFF !important;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px;color:#000 !important}
-.gamebox{width:100%;height:260px;background:#FFFDE7 !important;border:3px dashed #FFD700;border-radius:18px;position:relative;margin-top:10px;overflow:hidden}
-#coin{width:80px;height:80px;background:gold;border-radius:50%;border:3px solid #000;position:absolute;left:100px;top:80px;font-size:34px;z-index:10}
-input{width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:8px;background:#fff;color:#000}
-.btn{width:100%;padding:14px;border-radius:100px;border:none;font-weight:900;margin-top:8px}
-</style>
-</head>
-<body>
-
-<div class="header">
-<h1 style="color:#000">👑 YorrOfficial</h1>
-<p>SELAMAT DATANG DI WEBSITE YORROFFICIAL</p>
-</div>
-
-<div class="card">
-<h3 style="color:#000">🖥️ Menu Game YorrOffc</
-<!-- 4. DOWNLOAD - SELALU MUNCUL -->
-<div class="card">
-<h3>🎊 Download Menu - TT / IG / YT</h3>
-<p style="font-size:11px;color:#666">Tempel link TikTok / IG / YT</p>
-<input id="dlInput" placeholder="Tempel link TikTok / IG / YT...">
-<button type="button" class="btn" style="background:#FFD700;color:#000" onclick="dl()">🚀 Download No WM</button>
-<div id="dlRes" style="margin-top:10px"></div>
-</div>
-
-<!-- 5. CHANNEL - SELALU MUNCUL -->
-<div class="card">
-<h3>🐉 Channel YorrOffc</h3>
-<p style="font-size:11px;color:#666">Join channel resmi biar gak ketinggalan info!</p>
-<a href="https://whatsapp.com/channel/0029Vb8HsL3IXnlrRqkzsT3s" target="_blank" style="text-decoration:none"><button type="button" class="btn" style="background:#25D366;color:#fff">🐉 Join Channel WA - KLIK DISINI</button></a>
-</div>
-
-<script>
-let score=0;
-let best=localStorage.getItem('yBest')||0;
-document.getElementById('best').innerText=best;
-function tap(){
- score++;
- document.getElementById('score').innerText=score;
- if(score>best){best=score;localStorage.setItem('yBest',best);document.getElementById('best').innerText=best}
- let c=document.getElementById('coin');
- c.style.left=Math.floor(Math.random()*200)+'px';
- c.style.top=Math.floor(Math.random()*160)+'px';
-}
-async function searchM(){
- let q=document.getElementById('mInput').value.trim();
- if(!q){alert('Ketik lagu dulu beb');return}
- document.getElementById('mRes').innerHTML='Loading...';
- try{
-  let r=await fetch('https://itunes.apple.com/search?term='+encodeURIComponent(q)+'&limit=3');
-  let d=await r.json();
-  let h='';
-  d.results.forEach(t=>{
-   h+=`<div style="background:#FFF8E1;padding:10px;border-radius:12px;margin-top:8px;border:2px solid #FFD700"><b>${t.trackName}</b><br><small>${t.artistName}</small><br><audio controls src="${t.previewUrl}" style="width:100%;margin-top:6px"></audio></div>`;
-  });
-  document.getElementById('mRes').innerHTML=h;
- }catch{document.getElementById('mRes').innerHTML='Error, coba lagi';}
-}
-async function dl(){
- let link=document.getElementById('dlInput').value.trim();
- if(!link){alert('Tempel link dulu');return}
- document.getElementById('dlRes').innerHTML='Proses download...';
- try{
-  let res=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(link)+'&hd=1');
-  let data=await res.json();
-  let v=data.data;
-  document.getElementById('dlRes').innerHTML=`<video controls src="${v.play}" style="width:100%;border-radius:12px;margin-top:8px"></video><a href="${v.play}" target="_blank" style="text-decoration:none"><button type="button" class="btn" style="background:#FFD700;color:#000;margin-top:8px">📥 Download No WM</button></a>`;
- }catch{document.getElementById('dlRes').innerHTML='Gagal, coba link TikTok lain';}
-}
-</script>
-</body>
-</html>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif}
+body{background:#0a0a0a;color:#fff;min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1000') center/cover;opacity:0.15;filter:blur(8px);z-index:0}
+.wrap{position:relative;z-index:1;padding:12px;padding-bottom:110px;max-width:480px;margin:0 auto}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.anime-btn{background:rgba(255,255,255,0.08);border:1px solid #FFD70033;border-radius:16px;padding:8px 14px;font-size:10px;font-weight:800;color:#FFD700;text-align:center;line-height:1}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,#FFD700,#FF8F00);border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:22px;box-shadow:0 4px 15px #FFD70055}
+.logo h2{font-size:16px;font-weight:800}
+.logo p{font-size:11px;color:#aaa}
+.level{background:rgba(255,215,0,0.15);border:1px solid #FFD70044;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:800;color:#FFD700}
+.crown{width:36px;height:36px;background:rgba(255,215,0,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;border:1px solid #FFD70044}
+.score-pill{margin-top:14px;background:rgba(20,20,20,0.9);border:1px solid #FFD70022;border-radius:100px;padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px;backdrop-filter:blur(20px)}
+.score-pill .y{width:36px;height:36px;background:linear-gradient(135deg,#FFD700,#FF8F00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000}
+.score-pill b{font-size:28px;letter-spacing:1px}
+.sub{color:#777;text-align:center;margin-top:10
