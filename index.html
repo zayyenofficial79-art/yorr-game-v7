@@ -6,28 +6,22 @@
 <title>YorrOfficial</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-@keyframes gerakBg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 body{
-  background: linear-gradient(120deg,#FFF9C4,#FFD54F,#FFE082,#FFF8E1,#FFECB3);
+  background: linear-gradient(120deg,#FFF9C4,#FFD54F,#FFE082,#FFF8E1);
   background-size:400% 400%;
-  animation:gerakBg 10s ease infinite;
-  min-height:100vh;
+  animation:gerak 10s ease infinite;
   padding:12px;
+  min-height:100vh;
 }
-.header{text-align:center;padding:18px;background:#fff;border:3px solid #FFD700;border-radius:22px;box-shadow:0 6px 20px rgba(255,193,7,0.3)}
-.header h1{font-size:32px;color:#000}
-.header p{background:#FFD700;color:#000;font-weight:900;font-size:12px;padding:6px 12px;border-radius:100px;display:inline-block;margin-top:6px}
-.menu{display:grid;gap:10px;margin-top:14px}
-.btn{width:100%;padding:16px;border-radius:18px;border:3px solid #FFD700;font-weight:900;font-size:15px;text-align:left}
-.btn:active{transform:scale(0.97)}
-.btn-gold{background:#FFD700;color:#000}
-.btn-white{background:#fff;color:#000}
-.card{background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
-.hide{display:none}
-.gamebox{width:100%;height:280px;background:#FFF8E1;border:3px dashed #FFB300;border-radius:18px;position:relative;margin-top:10px;overflow:hidden}
-#coin{width:75px;height:75px;background:gold;border-radius:50%;border:3px solid #000;position:absolute;left:100px;top:100px;font-size:32px}
+@keyframes gerak{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.header{text-align:center;padding:18px;background:#fff;border:3px solid #FFD700;border-radius:22px}
+.header h1{font-size:32px}
+.header p{background:#FFD700;color:#000;font-weight:900;font-size:12px;padding:6px 14px;border-radius:100px;display:inline-block;margin-top:6px}
+.card{background:#fff;border:3px solid #FFD700;border-radius:22px;padding:14px;margin-top:14px}
+.gamebox{width:100%;height:260px;background:#FFF8E1;border:3px dashed #FFB300;border-radius:18px;position:relative;margin-top:10px;overflow:hidden}
+#coin{width:80px;height:80px;background:gold;border-radius:50%;border:3px solid #000;position:absolute;left:100px;top:80px;font-size:34px;z-index:10}
 input{width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:8px}
-.btn-action{width:100%;padding:13px;border-radius:100px;border:none;font-weight:900;margin-top:8px}
+.btn{width:100%;padding:14px;border-radius:100px;border:none;font-weight:900;margin-top:8px}
 </style>
 </head>
 <body>
@@ -37,7 +31,87 @@ input{width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margi
 <p>SELAMAT DATANG DI WEBSITE YORROFFICIAL</p>
 </div>
 
-<div class="menu">
-<button type="button" class="btn btn-gold" onclick="buka('game')">🖥️ Menu Game YorrOffc</button>
-<button type="button" class="btn btn-white" onclick="buka('owner')">🎀 Owner Web</button>
-<button type="button" class="btn btn-white" onclick="buka('music')">🎧 Music Menu
+<!-- 1. GAME - SELALU MUNCUL, GAK DI HIDE LAGI -->
+<div class="card" style="background:linear-gradient(135deg,#FFD700,#FFE082)">
+<h3>🖥️ Menu Game YorrOffc</h3>
+<p style="margin-top:6px">Score: <b id="score" style="color:#000;font-size:20px">0</b> | Best: <b id="best">0</b></p>
+<div class="gamebox">
+<button type="button" id="coin" onclick="tap()">💰</button>
+</div>
+<button type="button" class="btn" style="background:#000;color:#FFD700" onclick="tap()">💥 TAP KOIN DI SINI! (PASTI BISA)</button>
+<button type="button" class="btn" style="background:#fff;color:#000;border:2px solid #000" onclick="score=0;document.getElementById('score').innerText=0">Reset</button>
+</div>
+
+<!-- 2. OWNER - SELALU MUNCUL -->
+<div class="card">
+<h3>🎀 Owner Web</h3>
+<h2 style="margin-top:6px">Owner Web YorrOfficial</h2>
+<p style="font-size:11px;color:#666">Pencet tombol bawah langsung chat owner!</p>
+<a href="https://wa.me/6283844183164?text=Halo%20Owner%20YorrOfficial" target="_blank" style="text-decoration:none"><button type="button" class="btn" style="background:#25D366;color:#fff">💬 Chat Owner - 6283844183164</button></a>
+</div>
+
+<!-- 3. MUSIC - SELALU MUNCUL -->
+<div class="card">
+<h3>🎧 Music Menu</h3>
+<p style="font-size:11px;color:#666">Cari lagu, langsung play!</p>
+<input id="mInput" placeholder="Ketik judul lagu...">
+<button type="button" class="btn" style="background:#FFD700;color:#000" onclick="searchM()">🔍 Cari Lagu</button>
+<div id="mRes" style="margin-top:10px"></div>
+</div>
+
+<!-- 4. DOWNLOAD - SELALU MUNCUL -->
+<div class="card">
+<h3>🎊 Download Menu - TT / IG / YT</h3>
+<p style="font-size:11px;color:#666">Tempel link TikTok / IG / YT</p>
+<input id="dlInput" placeholder="Tempel link TikTok / IG / YT...">
+<button type="button" class="btn" style="background:#FFD700;color:#000" onclick="dl()">🚀 Download No WM</button>
+<div id="dlRes" style="margin-top:10px"></div>
+</div>
+
+<!-- 5. CHANNEL - SELALU MUNCUL -->
+<div class="card">
+<h3>🐉 Channel YorrOffc</h3>
+<p style="font-size:11px;color:#666">Join channel resmi biar gak ketinggalan info!</p>
+<a href="https://whatsapp.com/channel/0029Vb8HsL3IXnlrRqkzsT3s" target="_blank" style="text-decoration:none"><button type="button" class="btn" style="background:#25D366;color:#fff">🐉 Join Channel WA - KLIK DISINI</button></a>
+</div>
+
+<script>
+let score=0;
+let best=localStorage.getItem('yBest')||0;
+document.getElementById('best').innerText=best;
+function tap(){
+ score++;
+ document.getElementById('score').innerText=score;
+ if(score>best){best=score;localStorage.setItem('yBest',best);document.getElementById('best').innerText=best}
+ let c=document.getElementById('coin');
+ c.style.left=Math.floor(Math.random()*200)+'px';
+ c.style.top=Math.floor(Math.random()*160)+'px';
+}
+async function searchM(){
+ let q=document.getElementById('mInput').value.trim();
+ if(!q){alert('Ketik lagu dulu beb');return}
+ document.getElementById('mRes').innerHTML='Loading...';
+ try{
+  let r=await fetch('https://itunes.apple.com/search?term='+encodeURIComponent(q)+'&limit=3');
+  let d=await r.json();
+  let h='';
+  d.results.forEach(t=>{
+   h+=`<div style="background:#FFF8E1;padding:10px;border-radius:12px;margin-top:8px;border:2px solid #FFD700"><b>${t.trackName}</b><br><small>${t.artistName}</small><br><audio controls src="${t.previewUrl}" style="width:100%;margin-top:6px"></audio></div>`;
+  });
+  document.getElementById('mRes').innerHTML=h;
+ }catch{document.getElementById('mRes').innerHTML='Error, coba lagi';}
+}
+async function dl(){
+ let link=document.getElementById('dlInput').value.trim();
+ if(!link){alert('Tempel link dulu');return}
+ document.getElementById('dlRes').innerHTML='Proses download...';
+ try{
+  let res=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(link)+'&hd=1');
+  let data=await res.json();
+  let v=data.data;
+  document.getElementById('dlRes').innerHTML=`<video controls src="${v.play}" style="width:100%;border-radius:12px;margin-top:8px"></video><a href="${v.play}" target="_blank" style="text-decoration:none"><button type="button" class="btn" style="background:#FFD700;color:#000;margin-top:8px">📥 Download No WM</button></a>`;
+ }catch{document.getElementById('dlRes').innerHTML='Gagal, coba link TikTok lain';}
+}
+</script>
+</body>
+</html>
