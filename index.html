@@ -1,57 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YorrOfficial V7</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#0e0e0e;color:#fff;padding:14px}
-.header{text-align:center;padding:20px 0}
-.header h1{color:#FFD700;font-size:34px}
-.card{background:#1c1c1c;border:1px solid #333;border-radius:22px;padding:16px;margin-bottom:12px}
-.gold{background:#FFD700 !important;color:#000 !important}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.btn-game{background:#000;border:2px solid #FFD700;color:#FFD700;border-radius:16px;padding:14px;text-align:center;font-weight:900;cursor:pointer}
-.btn-game.active{background:#FFD700;color:#000}
-.gamebox{width:100%;height:300px;background:#000;border-radius:18px;margin-top:12px;position:relative;border:2px solid #222;overflow:hidden}
-#coin{width:70px;height:70px;background:radial-gradient(circle,#FFE88A,#FFD700);border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 0 20px #FFD700;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
-#block{width:80px;height:20px;background:#FFD700;position:absolute;bottom:20px;left:0;border-radius:20px;display:none}
-.btn{width:100%;padding:14px;border-radius:100px;border:none;font-weight:900;margin-top:10px}
-</style>
-</head>
-<body>
-
-<div class="header">
-<h1>👑 YorrOfficial</h1>
-<p style="color:#888;font-size:12px">V7 • FIXED BISA DIPENCET</p>
-</div>
-
-<div class="card gold"><b>GAME CENTER</b><br><h2>🎮 GAME YORR - TAP! (BANYAK GAME DI DALEM)</h2></div>
-
-<div class="card">
-<b>🎮 PILIH GAME DI BAWAH - SEMUA BISA DIPENCET!</b>
-<div class="grid">
-<div class="btn-game active" id="btn1" onclick="ganti(1)">💰<br>TAP KOIN</div>
-<div class="btn-game" id="btn2" onclick="ganti(2)">⚡<br>TAP CEPAT</div>
-<div class="btn-game" id="btn3" onclick="ganti(3)">🎯<br>TAP TARGET</div>
-<div class="btn-game" id="btn4" onclick="ganti(4)">🔥<br>SPAM TAP</div>
-</div>
-
-<h2 style="margin-top:16px">Game: <span id="gname" style="color:#FFD700">TAP KOIN</span> | Score: <span id="score" style="color:#FFD700">0</span> | Best: <span id="best">0</span></h2>
-
-<div class="gamebox" id="box">
-<div id="block"></div>
-<div id="coin" onclick="tap()">💰</div>
-</div>
-
-<button class="btn" style="background:#222;color:#fff" onclick="reset()">↺ Reset</button>
-<p style="font-size:11px;color:#888;margin-top:8px" id="help">Tap koin emas! Tiap tap +1</p>
-</div>
-
-<script>
-let game=1,score=0,best=localStorage.getItem('yBest')||0,x=0,dir=3;
-document.getElementById('best').innerText=best;
-let block=document.getElementById('block');
-let coin=document.getElementById('coin');
-function loop(){
+body{background:#0f0f0f;color:#fff;padding:14px}
+.header{text-align:center;padding:22px 0 10px 0}
+.header h1{color:#FFD700;font-size:38px;font-weight:900}
+.menu{display:grid;gap:12px;margin-top:16px}
+.btn-menu{width:100%;padding:18px 20px;border-radius:20px;border:1px solid #333;background:#1e1e1e;color:#fff;font-size:16px;font-weight:800;text-align:left;display:flex;align-items:center;gap:12px;cursor:pointer}
+.btn-menu:active{transform:scale(0.97)}
+.btn-menu.gold{background:linear-gradient(135deg,#FFD700,#FFE88A);color:#000;border:none;
