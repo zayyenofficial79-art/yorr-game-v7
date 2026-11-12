@@ -1,4 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YorrOfficial V7 TERANG</title>
+</head>
+<body style="background:#ffffff !important;color:#000000 !important;margin:0;padding:12px;font-family:sans-serif">
 
+<h1 style="text-align:center;color:#000">👑 YorrOfficial</h1>
+<p style="text-align:center;color:#000;font-weight:900">V7 TERANG - GAK GELEP LAGI</p>
+
+<div style="margin-top:20px;display:grid;gap:12px">
+<button onclick="buka('game')" style="width:100%;padding:18px;border-radius:20px;border:3px solid #FFD700;background:#FFD700;color:#000;font-weight:900;font-size:16px">🖥️ Menu Game YorrOffc</button>
+<button onclick="buka('owner')" style="width:100%;padding:18px;border-radius:20px;border:2px solid #FFD700;background:#fff;color:#000;font-weight:900;font-size:16px">🎀 Owner Web</button>
+<button onclick="buka('music')" style="width:100%;padding:18px;border-radius:20px;border:2px solid #FFD700;background:#fff;color:#000;font-weight:900;font-size:16px">🎧 Music Menu</button>
+<button onclick="buka('download')" style="width:100%;padding:18px;border-radius:20px;border:2px solid #FFD700;background:#fff;color:#000;font-weight:900;font-size:16px">🎊 Download Menu</button>
+<button onclick="buka('channel')" style="width:100%;padding:18px;border-radius:20px;border:2px solid #FFD700;background:#fff;color:#000;font-weight:900;font-size:16px">🐉 Channel YorrOffc</button>
+</div>
+
+<div id="game" style="display:block;background:#fff;border:3px solid #FFD700;border-radius:20px;padding:14px;margin-top:14px">
+<h3>🖥️ Menu Game YorrOffc</h3>
+<p>Score: <span id="score" style="color:#FFB300;font-weight:900">0</span> Best: <span id="best">0</span></p>
+<div style="width:100%;height:250px;background:#FFF8E1;border:2px dashed #FFD700;border-radius:16px;position:relative;margin-top:10px">
+<button id="coin" onclick="tap()" style="width:70px;height:70px;background:gold;border-radius:50%;border:3px solid #000;position:absolute;left:100px;top:80px;font-size:30px">💰</button>
+</div>
+<button onclick="tap()" style="width:100%;padding:14px;border-radius:100px;background:#FFD700;color:#000;font-weight:900;margin-top:10px;border:none">TAP KOIN! 💰</button>
+<button onclick="score=0;document.getElementById('score').innerText=0" style="width:100%;padding:14px;border-radius:100px;background:#000;color:#FFD700;font-weight:900;margin-top:8px;border:none">Reset</button>
+</div>
+
+<div id="owner" style="display:none;background:#fff;border:3px solid #FFD700;border-radius:20px;padding:14px;margin-top:14px">
+<h3>🎀 Owner Web</h3><h2>6283844183164</h2><a href="https://wa.me/6283844183164" target="_blank"><button style="width:100%;padding:14px;border-radius:100px;background:#25D366;color:#fff;font-weight:900;border:none;margin-top:8px">Chat WA</button></a>
+</div>
+
+<div id="music" style="display:none;background:#fff;border:3px solid #FFD700;border-radius:20px;padding:14px;margin-top:14px">
+<h3>🎧 Music Menu</h3><input id="mInput" placeholder="Cari lagu..." style="width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:8px"><button onclick="searchM()" style="width:100%;padding:12px;border-radius:100px;background:#FFD700;color:#000;font-weight:900;border:none;margin-top:8px">Cari</button><div id="mRes"></div>
+</div>
+
+<div id="download" style="display:none;background:#fff;border:3px solid #FFD700;border-radius:20px;padding:14px;margin-top:14px">
+<h3>🎊 Download Menu</h3><input id="dlInput" placeholder="Tempel link TikTok..." style="width:100%;padding:12px;border-radius:100px;border:2px solid #FFD700;margin-top:8px"><button onclick="dl()" style="width:100%;padding:12px;border-radius:100px;background:#FFD700;color:#000;font-weight:900;border:none;margin-top:8px">Download</button><div id="dlRes"></div>
+</div>
+
+<div id="channel" style="display:none;background:#fff;border:3px solid #FFD700;border-radius:20px;padding:14px;margin-top:14px">
+<h3>🐉 Channel YorrOffc</h3><a href="https://wa.me/6283844183164" target="_blank"><button style="width:100%;padding:12px;border-radius:100px;background:#25D366;color:#fff;font-weight:900;border:none;margin-top:8px">Join Channel WA</button></a>
+</div>
+
+<script>
+function buka(id){document.getElementById('game').style.display='none';document.getElementById('owner').style.display='none';document.getElementById('music').style.display='none';document.getElementById('download').style.display='none';document.getElementById('channel').style.display='none';document.getElementById(id).style.display='block'}
+let score=0,best=localStorage.getItem('yb')||0;document.getElementById('best').innerText=best;
+function tap(){score++;document.getElementById('score').innerText=score;if(score>best){best=score;localStorage.setItem('yb',best);document.getElementById('best').innerText=best}let c=document.getElementById('coin');c.style.left=Math.floor(Math.random()*180)+'px';c.style.top=Math.floor(Math.random()*150)+'px'}
+async function searchM(){let q=document.getElementById('mInput').value;if(!q)return;document.getElementById('mRes').innerHTML='Loading...';let r=await fetch('https://itunes.apple.com/search?term='+encodeURIComponent(q)+'&limit=2');let d=await r.json();let h='';d.results.forEach(t=>{h+=`<div style="margin-top:8px"><b>${t.trackName}</b><br><audio controls src="${t.previewUrl}" style="width:100%"></audio></div>`});document.getElementById('mRes').innerHTML=h}
+async function dl(){let l=document.getElementById('dlInput').value;if(!l)return;document.getElementById('dlRes').innerHTML='Proses...';try{let res=await fetch('https://www.tikwm.com/api/?url='+encodeURIComponent(l)+'&hd=1');let data=await res.json();let v=data.data;document.getElementById('dlRes').innerHTML=`<video controls src="${v.play}" style="width:100%;border-radius:12px;margin-top:8px"></video><a href="${v.play}" target="_blank"><button style="width:100%;padding:12px;border-radius:100px;background:#FFD700;color:#000;font-weight:900;border:none;margin-top:8px">Download No WM</button></a>`}catch{document.getElementById('dlRes').innerHTML='Error'}}
+</script>
+</body>
+</html>
 
 <!DOCTYPE html>
 <html>
